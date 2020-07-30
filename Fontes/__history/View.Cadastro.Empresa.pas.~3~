@@ -1,0 +1,31 @@
+unit View.Cadastro.Empresa;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Buttons;
+
+type
+  TfrmCadEmpresa = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    btnNovo: TBitBtn;
+    btnSalvar: TBitBtn;
+    btnExcluir: TBitBtn;
+    btnEnderecos: TBitBtn;
+    btnFechar: TBitBtn;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCadEmpresa: TfrmCadEmpresa;
+
+implementation
+
+{$R *.dfm}
+
+end.

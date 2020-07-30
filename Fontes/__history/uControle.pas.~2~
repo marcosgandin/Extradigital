@@ -1,0 +1,23 @@
+unit uControle;
+
+interface
+
+uses
+   Windows, Messages, SysUtils, Classes,  Controls, Forms, Dialogs,
+   Variants, Contnrs, DBXFirebird, SqlExpr,  StrUtils, inifiles,
+   uConexaoBanco;
+
+type
+  TControle = class
+    private
+      FConexao  : TConexaoBanco;
+      FSqqGeral : TSQLQuery;
+    public
+      constructor Create;
+      destructor  Destroy; override;
+      property SqqGeral : TSQLQuery read FSqqGeral write FSqqGeral;
+end;
+
+implementation
+
+end.

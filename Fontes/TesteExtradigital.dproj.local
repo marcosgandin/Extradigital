@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020/03/27 14:41:27.000.525,=C:\Users\marco\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/03/29 15:04:44.000.362,=C:\Users\marco\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/05/06 17:02:16.000.252,=C:\Users\marco\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/07/29 13:56:59.657,=C:\Users\marco\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/07/29 14:00:43.841,C:\Projetos\Extradigital\Fontes\View.Principal.dfm=C:\Users\marco\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2020/07/29 14:00:43.841,C:\Projetos\Extradigital\Fontes\View.Principal.pas=C:\Users\marco\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/07/29 14:01:11.257,C:\Projetos\Extradigital\Fontes\TesteExtradigital.dproj=C:\Users\marco\OneDrive\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2020/07/29 14:30:12.610,=C:\Projetos\Extradigital\Fontes\Unit1.pas</Transaction>
+    <Transaction>2020/07/29 14:32:48.632,C:\Projetos\Extradigital\Fontes\View.Cadastro.Pessoa.pas=C:\Projetos\Extradigital\Fontes\Unit1.pas</Transaction>
+    <Transaction>2020/07/29 14:32:48.632,C:\Projetos\Extradigital\Fontes\View.Cadastro.Pessoa.dfm=C:\Projetos\Extradigital\Fontes\Unit1.dfm</Transaction>
+    <Transaction>2020/07/29 14:36:49.898,=C:\Projetos\Extradigital\Fontes\Unit1.pas</Transaction>
+    <Transaction>2020/07/29 14:40:19.283,C:\Projetos\Extradigital\Fontes\View.Cadastro.Empresa.pas=C:\Projetos\Extradigital\Fontes\Unit1.pas</Transaction>
+    <Transaction>2020/07/29 14:40:19.283,C:\Projetos\Extradigital\Fontes\View.Cadastro.Empresa.dfm=C:\Projetos\Extradigital\Fontes\Unit1.dfm</Transaction>
+    <Transaction>2020/07/29 15:53:23.348,=C:\Projetos\Extradigital\Fontes\Unit1.pas</Transaction>
+    <Transaction>2020/07/29 15:55:49.329,C:\Projetos\Extradigital\Fontes\View.Cadastro.Endereco.pas=C:\Projetos\Extradigital\Fontes\Unit1.pas</Transaction>
+    <Transaction>2020/07/29 15:55:49.329,C:\Projetos\Extradigital\Fontes\View.Cadastro.Endereco.dfm=C:\Projetos\Extradigital\Fontes\Unit1.dfm</Transaction>
+    <Transaction>2020/07/29 18:26:15.823,=C:\Projetos\Extradigital\Fontes\Unit1.pas</Transaction>
+    <Transaction>2020/07/29 18:30:08.867,C:\Projetos\Extradigital\Fontes\uConexaoBanco.pas=C:\Projetos\Extradigital\Fontes\Unit1.pas</Transaction>
+    <Transaction>2020/07/29 18:38:43.274,=C:\Projetos\Extradigital\Fontes\Unit1.pas</Transaction>
+    <Transaction>2020/07/29 18:39:36.017,C:\Projetos\Extradigital\Fontes\uControle.pas=C:\Projetos\Extradigital\Fontes\Unit1.pas</Transaction>
+    <Transaction>2020/07/29 19:14:18.852,C:\Projetos\Extradigital\Fontes\uConexaoBanco.pas=</Transaction>
+    <Transaction>2020/07/29 19:14:22.544,C:\Projetos\Extradigital\Fontes\uControle.pas=</Transaction>
+    <Transaction>2020/07/29 19:22:50.010,=C:\Projetos\Extradigital\Fontes\Unit1.pas</Transaction>
+    <Transaction>2020/07/29 19:24:07.547,C:\Projetos\Extradigital\Fontes\uDM.dfm=C:\Projetos\Extradigital\Fontes\Unit1.dfm</Transaction>
+    <Transaction>2020/07/29 19:24:07.547,C:\Projetos\Extradigital\Fontes\uDM.pas=C:\Projetos\Extradigital\Fontes\Unit1.pas</Transaction>
+    <Transaction>2020/07/29 22:02:14.015,=C:\Projetos\Extradigital\Fontes\Unit1.pas</Transaction>
+    <Transaction>2020/07/29 22:02:31.582,C:\Projetos\Extradigital\Fontes\uUtil.pas=C:\Projetos\Extradigital\Fontes\Unit1.pas</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5"/>
+	</ActiveMobileDevice>
+</BorlandProject>

@@ -1,0 +1,36 @@
+object frmCadPessoa: TfrmCadPessoa
+  Left = 0
+  Top = 0
+  BorderStyle = bsSingle
+  Caption = 'Cadastro de Pessoa'
+  ClientHeight = 340
+  ClientWidth = 596
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 290
+    Width = 596
+    Height = 50
+    Align = alBottom
+    TabOrder = 0
+    ExplicitTop = 289
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 0
+    Width = 596
+    Height = 290
+    Align = alClient
+    TabOrder = 1
+    ExplicitHeight = 293
+  end
+end

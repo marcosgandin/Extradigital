@@ -1,0 +1,66 @@
+unit View.Principal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus;
+
+type
+  TfrmPrincipal = class(TForm)
+    mnuPrincipal: TMainMenu;
+    mniCadastros: TMenuItem;
+    mniConsulta: TMenuItem;
+    mniSair: TMenuItem;
+    mniPessoa: TMenuItem;
+    mniEmpresa: TMenuItem;
+    N1: TMenuItem;
+    mniSair1: TMenuItem;
+    mniFuncionrios: TMenuItem;
+    procedure mniSairClick(Sender: TObject);
+    procedure mniPessoaClick(Sender: TObject);
+    procedure mniEmpresaClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+uses
+  uControle, View.Cadastro.Pessoa, View.Cadastro.Empresa;
+
+{$R *.dfm}
+
+procedure TfrmPrincipal.FormCreate(Sender: TObject);
+begin
+  TControle.Create;
+end;
+
+procedure TfrmPrincipal.mniEmpresaClick(Sender: TObject);
+begin
+  frmCadEmpresa := TfrmCadEmpresa.Create(Application);
+  frmCadEmpresa.ShowModal;
+  if frmCadEmpresa <> nil then
+    frmCadEmpresa.Free;
+end;
+
+procedure TfrmPrincipal.mniPessoaClick(Sender: TObject);
+begin
+  frmCadPessoa := TfrmCadPessoa.Create(Application);
+  frmCadPessoa.ShowModal;
+  if frmCadPessoa <> nil then
+    frmCadPessoa.Free;
+end;
+
+procedure TfrmPrincipal.mniSairClick(Sender: TObject);
+begin
+  Close;
+end;
+
+end.

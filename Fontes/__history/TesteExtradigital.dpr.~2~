@@ -1,0 +1,16 @@
+program TesteExtradigital;
+
+uses
+  Vcl.Forms,
+  View.Principal in 'View.Principal.pas' {frmPrincipal},
+  View.Cadastro.Pessoa in 'View.Cadastro.Pessoa.pas' {frmCadPessoa};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmPrincipal, frmPrincipal);
+  Application.CreateForm(TfrmCadPessoa, frmCadPessoa);
+  Application.Run;
+end.

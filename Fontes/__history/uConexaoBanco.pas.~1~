@@ -1,0 +1,39 @@
+unit uConexaoBanco;
+
+interface
+
+uses
+  SqlExpr, IniFiles, SysUtils, Forms; //, uGFunctions;
+
+type
+  TConexaoBanco = class
+  private
+    FConexaoBanco : TSQLConnection;
+  public
+    constructor Create;
+    destructor  Destroy; override;
+    function GetConexao : TSQLConnection;
+    property ConexaoBanco : TSQLConnection   read GetConexao;
+end;
+
+implementation
+
+{ TConexaoBanco }
+
+constructor TConexaoBanco.Create;
+begin
+
+end;
+
+destructor TConexaoBanco.Destroy;
+begin
+
+  inherited;
+end;
+
+function TConexaoBanco.GetConexao: TSQLConnection;
+begin
+
+end;
+
+end.
