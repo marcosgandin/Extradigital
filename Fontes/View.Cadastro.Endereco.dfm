@@ -5,7 +5,7 @@ object frmCadEnderecos: TfrmCadEnderecos
   BorderStyle = bsSingle
   Caption = 'Cadastro de Endere'#231'os'
   ClientHeight = 340
-  ClientWidth = 596
+  ClientWidth = 619
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,11 +19,11 @@ object frmCadEnderecos: TfrmCadEnderecos
   object Panel1: TPanel
     Left = 0
     Top = 290
-    Width = 596
+    Width = 619
     Height = 50
     Align = alBottom
     TabOrder = 0
-    ExplicitTop = 289
+    ExplicitWidth = 596
     object btnNovo: TBitBtn
       Left = 24
       Top = 12
@@ -91,7 +91,7 @@ object frmCadEnderecos: TfrmCadEnderecos
       TabOrder = 2
     end
     object btnFechar: TBitBtn
-      Left = 485
+      Left = 510
       Top = 12
       Width = 82
       Height = 25
@@ -117,10 +117,177 @@ object frmCadEnderecos: TfrmCadEnderecos
   object Panel2: TPanel
     Left = 0
     Top = 0
-    Width = 596
+    Width = 619
     Height = 290
     Align = alClient
     TabOrder = 1
-    ExplicitHeight = 293
+    ExplicitTop = 6
+    ExplicitWidth = 596
+    object Label1: TLabel
+      Left = 24
+      Top = 16
+      Width = 37
+      Height = 13
+      Caption = 'C'#243'digo:'
+    end
+    object Label2: TLabel
+      Left = 24
+      Top = 43
+      Width = 59
+      Height = 13
+      Caption = 'Logradouro:'
+    end
+    object Label3: TLabel
+      Left = 24
+      Top = 70
+      Width = 41
+      Height = 13
+      Caption = 'N'#250'mero:'
+    end
+    object Label4: TLabel
+      Left = 152
+      Top = 70
+      Width = 69
+      Height = 13
+      Caption = 'Complemento:'
+    end
+    object Label5: TLabel
+      Left = 24
+      Top = 97
+      Width = 32
+      Height = 13
+      Caption = 'Bairro:'
+    end
+    object Label6: TLabel
+      Left = 24
+      Top = 123
+      Width = 23
+      Height = 13
+      Caption = 'CEP:'
+    end
+    object Label7: TLabel
+      Left = 173
+      Top = 123
+      Width = 37
+      Height = 13
+      Caption = 'Cidade:'
+    end
+    object Label8: TLabel
+      Left = 513
+      Top = 123
+      Width = 17
+      Height = 13
+      Caption = 'UF:'
+    end
+    object edtCodigo: TEdit
+      Left = 87
+      Top = 13
+      Width = 78
+      Height = 21
+      Color = clSilver
+      Enabled = False
+      ReadOnly = True
+      TabOrder = 0
+    end
+    object edtLogradouro: TEdit
+      Left = 87
+      Top = 40
+      Width = 505
+      Height = 21
+      TabOrder = 1
+    end
+    object edtNumero: TEdit
+      Left = 87
+      Top = 67
+      Width = 58
+      Height = 21
+      TabOrder = 2
+    end
+    object Edit1: TEdit
+      Left = 223
+      Top = 67
+      Width = 369
+      Height = 21
+      TabOrder = 3
+    end
+    object edtBairro: TEdit
+      Left = 87
+      Top = 94
+      Width = 505
+      Height = 21
+      TabOrder = 4
+    end
+    object edtCEP: TMaskEdit
+      Left = 87
+      Top = 120
+      Width = 78
+      Height = 21
+      EditMask = '00.000\-999;1;_'
+      MaxLength = 10
+      TabOrder = 5
+      Text = '  .   -   '
+    end
+    object edtCidade: TEdit
+      Left = 214
+      Top = 120
+      Width = 291
+      Height = 21
+      TabOrder = 6
+    end
+    object cbxUF: TComboBox
+      Left = 536
+      Top = 120
+      Width = 56
+      Height = 21
+      TabOrder = 7
+      Items.Strings = (
+        'AC'
+        'AL'
+        'AM'
+        'AP'
+        'BA'
+        'CE'
+        'DF'
+        'ES'
+        'GO'
+        'MA'
+        'MG'
+        'MS'
+        'MT'
+        'PA'
+        'PB'
+        'PE'
+        'PI'
+        'PR'
+        'RJ'
+        'RN'
+        'RO'
+        'RR'
+        'RS'
+        'SC'
+        'SE'
+        'SP'
+        'TO')
+    end
+    object chbPrincipal: TCheckBox
+      Left = 508
+      Top = 17
+      Width = 84
+      Height = 17
+      Caption = 'End. Principal'
+      TabOrder = 8
+    end
+    object dbgPessoas: TDBGrid
+      Left = 8
+      Top = 151
+      Width = 600
+      Height = 129
+      TabOrder = 9
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+    end
   end
 end

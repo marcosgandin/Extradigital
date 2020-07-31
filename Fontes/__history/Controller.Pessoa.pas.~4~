@@ -1,0 +1,109 @@
+unit Controller.Pessoa;
+
+interface
+
+uses
+  SysUtils, Model.Pessoa;
+
+type
+  TControllerPessoa = class
+  private
+    function ValidarCPF(numCPF: string): boolean;
+  public
+    procedure Salvar(const objetoPessoa: TPessoa);
+  end;
+
+implementation
+
+{ TControllerPessoa }
+
+procedure TControllerPessoa.Salvar(const objetoPessoa: TPessoa);
+begin
+  if objetoPessoa.NomePessoa = '' then
+    raise Exception.Create('Preencha o nome da pessoa.');
+
+  if not (ValidarCPF(objetoPessoa.CPF)) then
+    raise Exception.Create('CPF inválido!');
+
+  // se o objeto for válido, o método Salvar é invocado
+  objetoPessoa.Salvar(objetoPessoa);
+end;
+
+function TControllerPessoa.ValidarCPF(numCPF: string): boolean;
+var
+  d1,d4,xx,nCount,resto,digito1,digito2 : Integer;
+  Check : String;
+  I: integer;
+begin
+  I := 1;
+  Check := '';
+  while I < (Length(numCPF) + 1) do
+  begin
+    if numCPF[I] in ['0'..'9'] then
+      Check := Check + numCPF[I];
+    inc(I);
+  end;
+  numCPF := Check;
+  Check := '';
+
+  if ((numCPF = '')  or
+     (numCPF = '00000000000')  or
+     (numCPF = '11111111111')  or
+     (numCPF = '22222222222')  or
+     (numCPF = '33333333333')  or
+     (numCPF = '44444444444')  or
+     (numCPF = '55555555555')  or
+     (numCPF = '66666666666')  or
+     (numCPF = '77777777777')  or
+     (numCPF = '88888888888')  or
+     (numCPF = '99999999999') or
+     (Length(numCPF) <> 11)) then
+  begin
+    Result := False;
+    Exit;
+  end;
+
+  d1 := 0; d4 := 0; xx := 1;
+  for nCount := 1 to Length( numCPF )-2 do
+  begin
+    if Pos( Copy( numCPF, nCount, 1 ), '/-.' ) = 0 then
+    begin
+      d1 := d1 + ( 11 - xx ) * StrToInt( Copy( numCPF, nCount, 1 ) );
+      d4 := d4 + ( 12 - xx ) * StrToInt( Copy( numCPF, nCount, 1 ) );
+      xx := xx+1;
+    end;
+  end;
+
+  resto := (d1 mod 11);
+  if resto < 2 then
+  begin
+    digito1 := 0;
+  end
+  else
+  begin
+    digito1 := 11 - resto;
+  end;
+
+  d4 := d4 + 2 * digito1;
+  resto := (d4 mod 11);
+  if resto < 2 then
+  begin
+    digito2 := 0;
+  end
+  else
+  begin
+    digito2 := 11 - resto;
+  end;
+
+  Check := IntToStr(Digito1) + IntToStr(Digito2);
+  if Check <> copy(numCPF,succ(length(numCPF)-2),2) then
+  begin
+    Result := False;
+  end
+  else
+  begin
+    Result := True;
+  end;
+end;
+
+end.

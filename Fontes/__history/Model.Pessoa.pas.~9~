@@ -1,0 +1,65 @@
+unit Model.Pessoa;
+
+interface
+
+uses
+  Windows, SysUtils, Classes, Controls, Forms, ComCtrls, uDM;
+
+type
+  TPessoa = class
+  private
+    FIdPessoa: Integer;
+    FNomePessoa: string;
+    FCPF: string;
+    FDataNascimento: TDate;
+    FSexo: string;
+    FTelefone: string;
+    FDataCadastro: TDateTime;
+  public
+    constructor Create;
+    procedure Salvar(const objetoCliente: TPessoa);
+
+    property IdPessoa: integer read FIdPessoa write FIdPessoa;
+    property NomePessoa: string read FNomePessoa write FNomePessoa;
+    property CPF: string read FCPF write FCPF;
+    property DataNascimento: TDate read FDataNascimento write FDataNascimento;
+    property Sexo: string read FSexo write FSexo;
+    property Telefone: string read FTelefone write FTelefone;
+    property DataCadastro: TDateTime read FDataCadastro write FDataCadastro;
+  end;
+
+implementation
+
+{ TPessoa }
+
+constructor TPessoa.Create;
+begin
+  FIdPessoa := dmPrincipal.GeneratorID('GEN_PESSOA_ID',dmPrincipal.FDConnection);
+  FNomePessoa := '';
+  FCPF := '';
+  FSexo := '';
+  FTelefone := '';
+  FDataCadastro := Now;
+end;
+
+procedure TPessoa.Salvar(const objetoCliente: TPessoa);
+begin
+  dmPrincipal.qryGeral.Close;
+  dmPrincipal.qryGeral.SQL.Clear;
+  dmPrincipal.qryGeral.SQL.Add('INSERT INTO PESSOA ');
+  dmPrincipal.qryGeral.SQL.Add('  (IdPessoa, NomePessoa, CPF, DataNascimento, ');
+  dmPrincipal.qryGeral.SQL.Add('   Sexo, Telefone, DataCadastro) ');
+  dmPrincipal.qryGeral.SQL.Add('VALUES ');
+  dmPrincipal.qryGeral.SQL.Add('  (:IdPessoa, :NomePessoa, :CPF, :DataNascimento, ');
+  dmPrincipal.qryGeral.SQL.Add('   :Sexo, :Telefone, :DataCadastro) ');
+
+  dmPrincipal.qryGeral.ParamByName('IdPessoa').AsInteger;
+  dmPrincipal.qryGeral.ParamByName('NomePessoa').AsString;
+  dmPrincipal.qryGeral.ParamByName('CPF').AsString;
+  dmPrincipal.qryGeral.ParamByName('DataNascimento').AsDate;
+  dmPrincipal.qryGeral.ParamByName('Sexo').AsString;
+  dmPrincipal.qryGeral.ParamByName('Telefone').AsString;
+  dmPrincipal.qryGeral.ParamByName('DataCadastro').AsDateTime := Now;
+end;
+
+end.

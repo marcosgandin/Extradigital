@@ -24,16 +24,26 @@ type
     edtCPF: TMaskEdit;
     Label4: TLabel;
     edtNascimento: TDateTimePicker;
-    RadioGroup1: TRadioGroup;
+    rgpSexo: TRadioGroup;
     Label5: TLabel;
     edtTelefone: TMaskEdit;
     dbgPessoas: TDBGrid;
+    btnEditar: TBitBtn;
     procedure btnFecharClick(Sender: TObject);
+    procedure btnEnderecosClick(Sender: TObject);
+    procedure btnNovoClick(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure btnEditarClick(Sender: TObject);
   private
     { Private declarations }
+    procedure HabilitaCampos(Status: Boolean);
   public
     { Public declarations }
   end;
+
+type
+  TStatus = (Incluir, Editar);
 
 var
   frmCadPessoa: TfrmCadPessoa;
@@ -41,55 +51,102 @@ var
 implementation
 
 uses
-  View.Cadastro.Endereco, uDM;
+  View.Cadastro.Endereco, Controller.Pessoa, Model.Pessoa, uDM;
 
 {$R *.dfm}
+
+procedure TfrmCadPessoa.btnEditarClick(Sender: TObject);
+var
+  Status: TStatus;
+begin
+  Status := Editar;
+  HabilitaCampos(False);
+end;
+
+procedure TfrmCadPessoa.btnEnderecosClick(Sender: TObject);
+begin
+  frmCadEnderecos := TfrmCadEnderecos.Create(Application);
+  frmCadEnderecos.ShowModal;
+  if frmCadEnderecos <> nil then
+    frmCadEnderecos.Free;
+end;
 
 procedure TfrmCadPessoa.btnFecharClick(Sender: TObject);
 begin
   Close;
 end;
 
-end.
-
-
-{
-procedure TfAcesso.procCadastraCPF(nuCPF: string);
+procedure TfrmCadPessoa.btnNovoClick(Sender: TObject);
 var
-  vlcNuCPF: string;
+  objetoPessoa: TPessoa;
+  Status: TStatus;
 begin
+  objetoPessoa := TPessoa.Create;
+
   try
-    vlcNuCPF := '';
-    if nuCPF = '' then
-      vlcNuCPF := InputBox('CPF','Seu cadastro está sem o número do seu CPF, ' +
-                           'favor informá-lo. (Digite somente números)','')
-    else vlcNuCPF := nuCPF;
-    if vlcNuCPF <> '' then
-    begin
-      if not(TestaCPF(vlcNuCPF)) then
-      begin
-        MessageDlg('CPF inválido!',mtError,[mbOk],0);
-        PostMessage(Self.Handle,WM_CPF,0,0);
-        SysUtils.abort;
-      end
-      else
-      begin
-        qryValidaCPF.close;
-        qryValidaCPF.Parameters.ParamByName('NUCPF').value := vlcNuCPF;
-        qryValidaCPF.open;
-        if not(qryValidaCPF.IsEmpty) then
-        begin
-          MessageDlg('CPF já cadasstrado!',mtError,[mbOk],0);
-          PostMessage(Self.Handle,WM_CPF,0,0);
-          SysUtils.abort;
-        end;
-        qryAtualizaCPF.Parameters.ParamByName('IDUSUARIO').value := edUsuario.text;
-        qryAtualizaCPF.Parameters.ParamByName('NUCPF').value := vlcNuCPF;
-        qryAtualizaCPF.ExecSQL;
-      end;
-    end
-    else SysUtils.abort;
+    HabilitaCampos(False);
+    Status := Incluir;
+    btnNovo.Enabled := False;
+    btnEditar.Enabled := False;
+    edtCodigo.Text := IntToStr(dmPrincipal.GeneratorID('GEN_PESSOA_ID',dmPrincipal.FDConnection));
+    edtNome.Text := objetoPessoa.NomePessoa;
+    edtCPF.Text := objetoPessoa.CPF;
+    edtTelefone.Text := objetoPessoa.Telefone;
+    rgpSexo.ItemIndex := -1;
+
+    edtNome.SetFocus;
   finally
+    FreeAndNil(objetoPessoa);
   end;
 end;
-}
+
+procedure TfrmCadPessoa.btnSalvarClick(Sender: TObject);
+var
+  objetoPessoa: TPessoa;
+  objetoControle: TControllerPessoa;
+  Status: TStatus;
+begin
+  objetoPessoa := TPessoa.Create;
+  objetoControle := TControllerPessoa.Create;
+
+  try
+    objetoPessoa.IdPessoa := StrToInt(edtCodigo.Text);
+    objetoPessoa.NomePessoa := Trim(edtNome.Text);
+    objetoPessoa.CPF := edtCPF.Text;
+    objetoPessoa.Telefone := edtTelefone.Text;
+    objetoPessoa.DataNascimento := edtNascimento.Date;
+    case rgpSexo.ItemIndex of
+      0 : objetoPessoa.Sexo := 'M';
+      1 : objetoPessoa.Sexo := 'F';
+    end;
+
+    case Status of
+      Incluir : objetoControle.Salvar(objetoPessoa);
+      Editar : objetoControle.Atualizar(objetoPessoa);
+    end;
+
+    HabilitaCampos(True);
+    btnNovo.Enabled := True;
+    btnEditar.Enabled := True;
+  finally
+    FreeAndNil(objetoPessoa);
+    FreeAndNil(objetoControle);
+  end;
+end;
+
+procedure TfrmCadPessoa.FormShow(Sender: TObject);
+begin
+  dmPrincipal.MostraDadosPessoas;
+  HabilitaCampos(True);
+end;
+
+procedure TfrmCadPessoa.HabilitaCampos(Status: Boolean);
+begin
+  edtNome.ReadOnly := Status;
+  edtCPF.ReadOnly := Status;
+  edtNascimento.Enabled := Status;
+  edtTelefone.ReadOnly := Status;
+  rgpSexo.Enabled := Status;
+end;
+
+end.

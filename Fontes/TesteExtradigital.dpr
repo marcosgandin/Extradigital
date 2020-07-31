@@ -7,7 +7,9 @@ uses
   View.Cadastro.Empresa in 'View.Cadastro.Empresa.pas' {frmCadEmpresa},
   View.Cadastro.Endereco in 'View.Cadastro.Endereco.pas' {frmCadEnderecos},
   uDM in 'uDM.pas' {dmPrincipal: TDataModule},
-  uUtil in 'uUtil.pas';
+  uUtil in 'uUtil.pas',
+  Model.Pessoa in 'Model.Pessoa.pas',
+  Controller.Pessoa in 'Controller.Pessoa.pas';
 
 {$R *.res}
 

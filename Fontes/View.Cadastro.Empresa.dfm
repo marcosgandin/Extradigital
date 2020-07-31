@@ -4,8 +4,8 @@ object frmCadEmpresa: TfrmCadEmpresa
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Cadastro de Empresa'
-  ClientHeight = 340
-  ClientWidth = 596
+  ClientHeight = 300
+  ClientWidth = 475
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,12 +18,13 @@ object frmCadEmpresa: TfrmCadEmpresa
   TextHeight = 13
   object Panel1: TPanel
     Left = 0
-    Top = 290
-    Width = 596
+    Top = 250
+    Width = 475
     Height = 50
     Align = alBottom
     TabOrder = 0
-    ExplicitTop = 296
+    ExplicitTop = 290
+    ExplicitWidth = 596
     object btnNovo: TBitBtn
       Left = 24
       Top = 12
@@ -91,7 +92,7 @@ object frmCadEmpresa: TfrmCadEmpresa
       TabOrder = 2
     end
     object btnEnderecos: TBitBtn
-      Left = 318
+      Left = 268
       Top = 12
       Width = 82
       Height = 25
@@ -111,9 +112,10 @@ object frmCadEmpresa: TfrmCadEmpresa
         3333333333333333333333333333333333333333333333333333}
       NumGlyphs = 2
       TabOrder = 3
+      OnClick = btnEnderecosClick
     end
     object btnFechar: TBitBtn
-      Left = 485
+      Left = 357
       Top = 12
       Width = 82
       Height = 25
@@ -139,10 +141,90 @@ object frmCadEmpresa: TfrmCadEmpresa
   object Panel2: TPanel
     Left = 0
     Top = 0
-    Width = 596
-    Height = 290
+    Width = 475
+    Height = 250
     Align = alClient
     TabOrder = 1
-    ExplicitHeight = 293
+    ExplicitLeft = 8
+    ExplicitTop = 6
+    ExplicitWidth = 596
+    ExplicitHeight = 290
+    object Label1: TLabel
+      Left = 24
+      Top = 16
+      Width = 37
+      Height = 13
+      Caption = 'C'#243'digo:'
+    end
+    object Label2: TLabel
+      Left = 24
+      Top = 43
+      Width = 31
+      Height = 13
+      Caption = 'Nome:'
+    end
+    object Label3: TLabel
+      Left = 24
+      Top = 70
+      Width = 29
+      Height = 13
+      Caption = 'CNPJ:'
+    end
+    object Label5: TLabel
+      Left = 208
+      Top = 70
+      Width = 46
+      Height = 13
+      Caption = 'Telefone:'
+    end
+    object edtCodigo: TEdit
+      Left = 67
+      Top = 13
+      Width = 78
+      Height = 21
+      Color = clSilver
+      Enabled = False
+      ReadOnly = True
+      TabOrder = 0
+    end
+    object edtNome: TEdit
+      Left = 67
+      Top = 40
+      Width = 318
+      Height = 21
+      TabOrder = 1
+    end
+    object edtCNPJ: TMaskEdit
+      Left = 67
+      Top = 67
+      Width = 132
+      Height = 21
+      EditMask = '99.999.999/9999-99;1;_'
+      MaxLength = 18
+      TabOrder = 2
+      Text = '  .   .   /    -  '
+    end
+    object edtTelefone: TMaskEdit
+      Left = 268
+      Top = 67
+      Width = 117
+      Height = 21
+      EditMask = '!\(99\)0000-0000;1;_'
+      MaxLength = 13
+      TabOrder = 3
+      Text = '(  )    -    '
+    end
+    object dbgPessoas: TDBGrid
+      Left = 8
+      Top = 103
+      Width = 449
+      Height = 133
+      TabOrder = 4
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+    end
   end
 end

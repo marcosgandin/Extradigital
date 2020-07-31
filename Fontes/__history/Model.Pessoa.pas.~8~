@@ -1,0 +1,50 @@
+unit Model.Pessoa;
+
+interface
+
+uses
+  Windows, SysUtils, Classes, Controls, Forms, ComCtrls, uDM;
+
+type
+  TPessoa = class
+  private
+    FIdPessoa: Integer;
+    FNomePessoa: string;
+    FCPF: string;
+    FDataNascimento: TDate;
+    FSexo: string;
+    FTelefone: string;
+    FDataCadastro: TDateTime;
+  public
+    constructor Create;
+    procedure Salvar(const objetoCliente: TPessoa);
+
+    property IdPessoa: integer read FIdPessoa write FIdPessoa;
+    property NomePessoa: string read FNomePessoa write FNomePessoa;
+    property CPF: string read FCPF write FCPF;
+    property DataNascimento: TDate read FDataNascimento write FDataNascimento;
+    property Sexo: string read FSexo write FSexo;
+    property Telefone: string read FTelefone write FTelefone;
+    property DataCadastro: TDateTime read FDataCadastro write FDataCadastro;
+  end;
+
+implementation
+
+{ TPessoa }
+
+constructor TPessoa.Create;
+begin
+  FIdPessoa := dmPrincipal.GeneratorID('GEN_PESSOA_ID',dmPrincipal.FDConnection);
+  FNomePessoa := '';
+  FCPF := '';
+  FSexo := '';
+  FTelefone := '';
+  FDataCadastro := Now;
+end;
+
+procedure TPessoa.Salvar(const objetoCliente: TPessoa);
+begin
+  //dmPrincipal.
+end;
+
+end.

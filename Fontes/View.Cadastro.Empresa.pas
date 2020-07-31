@@ -4,7 +4,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Buttons;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.Mask, Data.DB, Vcl.Grids, Vcl.DBGrids;
 
 type
   TfrmCadEmpresa = class(TForm)
@@ -15,7 +16,17 @@ type
     btnExcluir: TBitBtn;
     btnEnderecos: TBitBtn;
     btnFechar: TBitBtn;
+    Label1: TLabel;
+    edtCodigo: TEdit;
+    Label2: TLabel;
+    edtNome: TEdit;
+    Label3: TLabel;
+    edtCNPJ: TMaskEdit;
+    Label5: TLabel;
+    edtTelefone: TMaskEdit;
+    dbgPessoas: TDBGrid;
     procedure btnFecharClick(Sender: TObject);
+    procedure btnEnderecosClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -31,6 +42,14 @@ uses
   View.Cadastro.Endereco, uDM;
 
 {$R *.dfm}
+
+procedure TfrmCadEmpresa.btnEnderecosClick(Sender: TObject);
+begin
+  frmCadEnderecos := TfrmCadEnderecos.Create(Application);
+  frmCadEnderecos.ShowModal;
+  if frmCadEnderecos <> nil then
+    frmCadEnderecos.Free;
+end;
 
 procedure TfrmCadEmpresa.btnFecharClick(Sender: TObject);
 begin

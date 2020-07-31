@@ -4,7 +4,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
+  Vcl.Mask, Data.DB, Vcl.Grids, Vcl.DBGrids;
 
 type
   TfrmCadEnderecos = class(TForm)
@@ -14,6 +15,24 @@ type
     btnSalvar: TBitBtn;
     btnExcluir: TBitBtn;
     btnFechar: TBitBtn;
+    Label1: TLabel;
+    edtCodigo: TEdit;
+    Label2: TLabel;
+    edtLogradouro: TEdit;
+    Label3: TLabel;
+    edtNumero: TEdit;
+    Label4: TLabel;
+    Edit1: TEdit;
+    Label5: TLabel;
+    edtBairro: TEdit;
+    Label6: TLabel;
+    edtCEP: TMaskEdit;
+    Label7: TLabel;
+    edtCidade: TEdit;
+    Label8: TLabel;
+    cbxUF: TComboBox;
+    chbPrincipal: TCheckBox;
+    dbgPessoas: TDBGrid;
     procedure btnFecharClick(Sender: TObject);
   private
     { Private declarations }
